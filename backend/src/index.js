@@ -28,7 +28,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-if (process.env.NODE_ENV === "development") {
+
   app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 app.get("*", (req, res) => {
@@ -36,7 +36,6 @@ app.get("*", (req, res) => {
         path.join(__dirname, "../../frontend/dist/index.html")
     );
 });
-}
 
 server.listen(PORT, () => {
   console.log("server is running on PORT:" + PORT);
